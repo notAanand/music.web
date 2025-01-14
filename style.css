@@ -37,8 +37,9 @@ body{
     width: 75vw;
     margin: 8px;
 }
-.right.home.cross{
+.cross{
     display: none;
+    
 }
 .right{
     width: 25vw;
@@ -180,62 +181,62 @@ body{
 }
 .playButtons img{
     width: 50px;
-   
+    
 }
 /* #play img{
     width: 75px;
     margin-top: -12px;
-}
-#pause img{
-    width: 75px;
-    margin-top: -12px;
-} */
-
-
-.playButtons{
-    display: flex;
-    justify-content:center;
-    gap: 50px;
-    position: relative;
-    padding: 12px;
-    /* top: 28px; */
-    
-}
-.songList ul  {
-    padding: 20px 48px;
+    }
+    #pause img{
+        width: 75px;
+        margin-top: -12px;
+        } */
+        
+        
+        .playButtons{
+            display: flex;
+            justify-content:center;
+            gap: 50px;
+            position: relative;
+            padding: 12px;
+            /* top: 28px; */
+            
+        }
+        .songList ul  {
+            padding: 20px 48px;
     min-width: fit-content;
     /* width: 344px; */
 }
 /* animation */
 .header .nav img {
     transition: transform 0.6s ease-in-out;
-  }
-  
-  .header .nav:hover img {
-    transform: rotate(30deg);
-  }
+}
 
-  .logo img {
+.header .nav:hover img {
+    transform: rotate(30deg);
+}
+
+.logo img {
     transition: transform 3s ease-in-out;
-  }
-  
-  .logo:hover img {
+}
+
+.logo:hover img {
     transform: rotate(360deg);
   }
-.songList ul li{
-    list-style-type: decimal;
-    display: flex;
-    gap: 16px;
-    align-items: center;
-    justify-content: space-evenly;
-    border: #b30eff 2px solid;
-    padding: 12px 0;
-    margin: 10px 0px ;
-    border-radius: 4px;
-}
-.songList {
-    height: 344px;
-    overflow: auto;
+  .songList ul li{
+      list-style-type: decimal;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      justify-content: space-evenly;
+      border: #b30eff 2px solid;
+      padding: 12px 0;
+      margin: 10px 0px ;
+      border-radius: 4px;
+    }
+    .songList {
+        height: 344px;
+        overflow: auto;
     cursor: pointer;
 }
 
@@ -292,20 +293,20 @@ body{
         width: 100vw;
         height: 80vh;
         overflow: scroll;
-
+        
     }
     .playbar{
         width: 98vw;
         height: 20vh;
         position:fixed;
         top: 75%;
-
+        
     }
     .hamburger{
         display: block;
     }
-    .right.home.cross{
-        display: flex;
+    .cross{
+        display: block;
         position: absolute;
         right: 12%;
         top: 3%;
@@ -313,6 +314,10 @@ body{
     }
     .audioseek{
         width: 90vw;
+    }
+    .cardContainer{
+        justify-content: center;
+
     }
 }
   

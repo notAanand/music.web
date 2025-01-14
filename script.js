@@ -101,6 +101,7 @@ async function main() {
         // console.log(currentSong.currentTime,currentSong.duration);
         document.querySelector(".songTime").innerHTML=`${formatTime(currentSong.currentTime)}/${formatTime(currentSong.duration)}`
         document.querySelector(".circle").style.left = (currentSong.currentTime/currentSong.duration) * 98 + "%";
+        ;
     })
 
     // add an addEventListener for seek bar
@@ -109,6 +110,8 @@ async function main() {
         document.querySelector(".circle").style.left= percent +"%"
         currentSong.currentTime=((currentSong.duration)*percent)/100
     })
+    // color changing of the seek
+    
 
     // adding a addEventListener for hamburger
     document.querySelector(".hamburger").addEventListener("click",()=>{
