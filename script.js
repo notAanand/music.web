@@ -1,6 +1,15 @@
 console.log('lets write js');
 let currentSong= new Audio()
 let isListenerAdded = false;
+let songs;
+
+function displaySongName(song) {
+    // Replace %20 with space
+    const formattedSongName = song.replaceAll("%20", " ");
+    document.querySelector(".songinfo").innerText = formattedSongName;
+}
+
+
 
 function formatTime(seconds) {
     // Convert to integer to ignore fractional part
@@ -47,7 +56,7 @@ const playMusic=(track)=>{
 }
 async function main() {
     
-    let songs = await getSongs()
+    songs = await getSongs()
     console.log(songs);
 
     let songUL = document.querySelector(".songList").getElementsByTagName("ul")[0]
@@ -96,10 +105,30 @@ async function main() {
 
         }
     })
+    // adding a addEventListener for  next button
+    next.addEventListener("click",()=>{
+        currentSong.pause()
+        console.log('next song is clicked');
+        let index = songs.indexOf(currentSong.src.split("/").slice(-1)[0])
+        if ((index+1) < songs.length){
+            playMusic(songs[index+1])
+            displaySongName(songs[index+1]); 
+        }
+    })
+    // adding a addEventListener for previous 
+    prev.addEventListener("click",()=>{
+        currentSong.pause()
+        console.log('next song is clicked');
+        let index = songs.indexOf(currentSong.src.split("/").slice(-1)[0])
+        if ((index-1) >=0){
+            playMusic(songs[index-1])
+            displaySongName(songs[index-1]); 
+        }
+    })
     // lister for the time
     currentSong.addEventListener("timeupdate",()=>{
         // console.log(currentSong.currentTime,currentSong.duration);
-        document.querySelector(".songTime").innerHTML=`${formatTime(currentSong.currentTime)}/${formatTime(currentSong.duration)}`
+        document.querySelector(".songTime").innerHTML=`${formatTime(currentSong.currentTime)} / ${formatTime(currentSong.duration)}`
         document.querySelector(".circle").style.left = (currentSong.currentTime/currentSong.duration) * 98 + "%";
         ;
     })

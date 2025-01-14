@@ -183,29 +183,18 @@ body{
     width: 50px;
     
 }
-/* #play img{
-    width: 75px;
-    margin-top: -12px;
-    }
-    #pause img{
-        width: 75px;
-        margin-top: -12px;
-        } */
-        
-        
-        .playButtons{
-            display: flex;
-            justify-content:center;
-            gap: 50px;
-            position: relative;
-            padding: 12px;
-            /* top: 28px; */
-            
-        }
-        .songList ul  {
-            padding: 20px 48px;
+.playButtons{
+    display: flex;
+    justify-content:center;
+    gap: 50px;
+    position: relative;
+    padding: 12px;
+    cursor: pointer;
+}
+.songList ul  {
+    padding: 20px 48px;
     min-width: fit-content;
-    /* width: 344px; */
+    
 }
 /* animation */
 .header .nav img {
@@ -314,10 +303,21 @@ body{
     }
     .audioseek{
         width: 90vw;
+        bottom: 10px;
     }
     .cardContainer{
         justify-content: center;
 
     }
+    .right{
+        margin: 0;
+    }
+    .upperbar{
+        margin: -9px 12px
+    }
+    .playButtons img{
+        width: 36px;
+    }
+    
 }
   
