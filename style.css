@@ -70,6 +70,19 @@ body{
     /* max-width: 20vw; */
 
 }
+.footer{
+    position: absolute;
+    bottom: 8px;
+}
+.copyright{
+    width: 24vw;
+    height: 4vh;
+    /* border: #b30eff 2px solid; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(169, 163, 163)
+}
 .heading{
     display: flex;
     gap: 12px;
@@ -139,19 +152,24 @@ body{
     overflow-y: scroll;
     height: 64vh;
 }
+.card:hover{
+    background: #b30eff;
+    
+}
 .card{
     padding: 4px;
     margin: 8px;
     height: 200px;
     width: 150px;
     /* border: 2px solid red; */
-    background-color: blueviolet;
+    background-color: #211f1f;
     font-size: small;
     font-weight: 100;
     border-radius: 8px;
     position: relative;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     cursor:pointer;
+    transition: all 1.5s;
 }
 .card img{
     width: 100%;
@@ -317,6 +335,10 @@ body{
     }
     .playButtons img{
         width: 36px;
+    }
+    .copyright{
+        font-size: small;
+        width: fit-content;
     }
     
 }
