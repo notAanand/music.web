@@ -99,7 +99,7 @@ async function main() {
     // lister for the time
     currentSong.addEventListener("timeupdate",()=>{
         // console.log(currentSong.currentTime,currentSong.duration);
-        document.querySelector(".songTime").innerHTML=`${formatTime(currentSong.currentTime)}:${formatTime(currentSong.duration)}`
+        document.querySelector(".songTime").innerHTML=`${formatTime(currentSong.currentTime)}/${formatTime(currentSong.duration)}`
         document.querySelector(".circle").style.left = (currentSong.currentTime/currentSong.duration) * 98 + "%";
     })
 
@@ -113,6 +113,10 @@ async function main() {
     // adding a addEventListener for hamburger
     document.querySelector(".hamburger").addEventListener("click",()=>{
         document.querySelector(".right").style.left= "0" +"%"
+    })
+    // adding a addEventListener for closing a hamburger
+    document.querySelector(".cross").addEventListener("click",()=>{
+        document.querySelector(".right").style.left= "-100%"
     })
     
 }

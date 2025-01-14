@@ -37,12 +37,12 @@ body{
     width: 75vw;
     margin: 8px;
 }
-.right .cross{
+.right.home.cross{
     display: none;
 }
 .right{
     width: 25vw;
-    overflow: scroll;
+    /* overflow: scroll; */
     position: relative;
     
     
@@ -83,7 +83,7 @@ body{
 .left{
     margin: 4px;
     position: relative;
-    /* overflow: scroll; */
+    
 }
 .hamburger{
     display: none;
@@ -135,6 +135,8 @@ body{
 .cardContainer{
     display: flex;
     flex-wrap: wrap;
+    overflow-y: scroll;
+    height: 64vh;
 }
 .card{
     padding: 4px;
@@ -166,8 +168,8 @@ body{
     opacity: 1;
 }
 .playbar{
-    position:sticky  ;
-    top: 100%;
+    position:fixed  ;
+    top: 80%;
     /* background: #86788c; */
     width: 74.5vw;
     height: 20vh;
@@ -271,11 +273,10 @@ body{
     font-size: larger;
     margin: -20px 12px;
     position: relative;
-    /* top: 32px; */
-    
-    /* padding: 4px 12px; */
-
-    /* align-items: center; */
+}
+.songinfo{
+    font-size: small;
+    font-weight: bolder;
 }
 
 @media (max-width: 1500px) {
@@ -290,17 +291,28 @@ body{
     .left{
         width: 100vw;
         height: 80vh;
+        overflow: scroll;
+
     }
     .playbar{
         width: 98vw;
         height: 20vh;
-        position:sticky;
+        position:fixed;
+        top: 75%;
+
     }
     .hamburger{
         display: block;
     }
-    .cross{
-        display: block;
+    .right.home.cross{
+        display: flex;
+        position: absolute;
+        right: 12%;
+        top: 3%;
+        width: 12px;
+    }
+    .audioseek{
+        width: 90vw;
     }
 }
   
