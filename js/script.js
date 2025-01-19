@@ -43,6 +43,8 @@ async function getSongs(folder) {
             songs.push(element.href.split(`${folder}`)[1])
         }
     }
+    
+    
 
     let songUL = document.querySelector(".songList").getElementsByTagName("ul")[0]
     songUL.innerHTML = " "
@@ -69,7 +71,7 @@ async function getSongs(folder) {
     })
     Array.from(document.querySelector(".songList").getElementsByTagName("li")).forEach(e => {
         e.addEventListener("click", element => {
-            console.log(e.querySelector(".songInfo").firstElementChild.innerHTML);
+            // console.log(e.querySelector(".songInfo").firstElementChild.innerHTML);
             playMusic(e.querySelector(".songInfo").firstElementChild.innerHTML.trim())
 
         })
@@ -79,12 +81,16 @@ async function getSongs(folder) {
 }
 const playMusic = (track) => {
     // let audi o = new Audio("/songs/"+ track)
-    currentSong.src = `${currFolder}` + track
+    // currentSong.src = `${currFolder}` + track
+    currentSong.src = encodeURI(`${currFolder}${track}`);
+
     currentSong.play()
     // play.src ="pause.png"
     play.src = "pause.svg";
     document.querySelector(".songinfo").innerHTML = decodeURI(track)
     document.querySelector(".songTime").innerHTML = "00:00 / 00:00"
+    console.log("Playing song:", currentSong.src);
+
 }
 async function displayAlbum() {
 
@@ -104,7 +110,7 @@ async function displayAlbum() {
             // get the mata data of the folder 
             let a = await fetch(`http://127.0.0.1:3000/songs/${folder}/info.json`);
             let response = await a.json()
-            console.log(response);
+            // console.log(response);
             cardContainer.innerHTML = cardContainer.innerHTML + `<div data-folder="${folder}"  class="card">
                         <div class="play">
                             <img src="pngs/play.png" alt="">
@@ -126,8 +132,8 @@ async function displayAlbum() {
 }
 
 async function main() {
-
-    await getSongs("songs/karan_aujla")
+    await getSongs("")
+    
     // .log(songs);
 
     displayAlbum()
@@ -180,7 +186,7 @@ async function main() {
 
     // lister for the time
     currentSong.addEventListener("timeupdate", () => {
-        console.log(currentSong.currentTime,currentSong.duration);
+        // console.log(currentSong.currentTime,currentSong.duration);
         document.querySelector(".songTime").innerHTML = `${formatTime(currentSong.currentTime)} / ${formatTime(currentSong.duration)}`
         document.querySelector(".circle").style.left = (currentSong.currentTime / currentSong.duration) * 98 + "%";
         ;
