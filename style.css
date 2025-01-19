@@ -171,6 +171,10 @@ body{
     cursor:pointer;
     transition: all 1.5s;
 }
+.card p{
+    color: #949494;
+}
+
 .card img{
     width: 100%;
     object-fit: contain;
@@ -325,7 +329,8 @@ body{
     }
     .cardContainer{
         justify-content: center;
-
+        padding-bottom: 12%;
+        
     }
     .right{
         margin: 0;
@@ -341,5 +346,6 @@ body{
         width: fit-content;
     }
     
+    
 }
-  
+
