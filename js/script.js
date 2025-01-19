@@ -62,13 +62,8 @@ async function getSongs(folder) {
                             </div>
         </li>`;
     }
-    let audio = new Audio(songs[0]);
-    // audio.play();
-
-
-    audio.addEventListener("loaded", () => {
-
-    })
+    // let audio = new Audio(songs[0]);
+    
     Array.from(document.querySelector(".songList").getElementsByTagName("li")).forEach(e => {
         e.addEventListener("click", element => {
             // console.log(e.querySelector(".songInfo").firstElementChild.innerHTML);
@@ -103,10 +98,14 @@ async function displayAlbum() {
     let array = Array.from(anchors)
     for (let index = 0; index < array.length; index++) {
         const e = array[index];
+        // console.log(e);
+        
 
 
         if (e.href.includes("/songs")) {
             let folder = e.href.split("/").slice(-2)[0]
+            // console.log(folder);
+            
             // get the mata data of the folder 
             let a = await fetch(`http://127.0.0.1:3000/songs/${folder}/info.json`);
             let response = await a.json()
@@ -124,6 +123,7 @@ async function displayAlbum() {
         // load the playlist when ever the card is touched 
         Array.from(document.getElementsByClassName("card")).forEach(e => {
             e.addEventListener('click', async item => {
+                
                 songs = await getSongs(`songs/${item.currentTarget.dataset.folder}`)
                 playMusic(songs[0])
             })
@@ -132,7 +132,7 @@ async function displayAlbum() {
 }
 
 async function main() {
-    await getSongs("")
+    await getSongs("songs/bikhra")//
     
     // .log(songs);
 
