@@ -84,7 +84,7 @@ const playMusic = (track) => {
     play.src = "pause.svg";
     document.querySelector(".songinfo").innerHTML = decodeURI(track)
     document.querySelector(".songTime").innerHTML = "00:00 / 00:00"
-    console.log("Playing song:", currentSong.src);
+    // console.log("Playing song:", currentSong.src);
 
 }
 async function displayAlbum() {
