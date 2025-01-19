@@ -2,7 +2,7 @@
 let currentSong = new Audio()
 let isListenerAdded = false;
 let songs;
-let currFolder;
+let currFolder; 
 
 function displaySongName(song) {
     // Replace %20 with space
