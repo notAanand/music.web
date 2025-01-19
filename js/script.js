@@ -128,7 +128,7 @@ async function displayAlbum() {
 async function main() {
 
     await getSongs("songs/karan_aujla")
-    console.log(songs);
+    // .log(songs);
 
     displayAlbum()
 
@@ -180,7 +180,7 @@ async function main() {
 
     // lister for the time
     currentSong.addEventListener("timeupdate", () => {
-        // console.log(currentSong.currentTime,currentSong.duration);
+        console.log(currentSong.currentTime,currentSong.duration);
         document.querySelector(".songTime").innerHTML = `${formatTime(currentSong.currentTime)} / ${formatTime(currentSong.duration)}`
         document.querySelector(".circle").style.left = (currentSong.currentTime / currentSong.duration) * 98 + "%";
         ;
