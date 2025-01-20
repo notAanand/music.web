@@ -1,18 +1,4 @@
 
-const cors =require('cors');
-const express = require('express');
-const app = express();
-
-// Enable CORS for all origins
-app.use(cors());
-
-// Example route
-app.use('/songs', express.static('path_to_songs_folder'));
-
-app.listen(3000, () => {
-    console.log('Server running on http://127.0.0.1:3000');
-});
-
 let currentSong = new Audio()
 let isListenerAdded = false;
 let songs;
