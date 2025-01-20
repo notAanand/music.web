@@ -31,7 +31,7 @@ function formatTime(seconds) {
 
 async function getSongs(folder) {
     currFolder = folder;
-    let a = await fetch(`http://127.0.0.1:3000/${folder}/`);
+    let a = await fetch(`/${folder}/`);
     let response = await a.text()
     let div = document.createElement("div")
     div.innerHTML = response
@@ -98,7 +98,7 @@ async function displayAlbum() {
 
 
 
-        if (e.href.includes("/songs")) {
+        if (e.href.includes("/songs") && !e.href.includes(".htaccess")) {
             let folder = e.href.split("/").slice(-2)[0]
             // console.log(folder);
 
