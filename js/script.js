@@ -1,8 +1,22 @@
 
+const cors =require('cors');
+const express = require('express');
+const app = express();
+
+// Enable CORS for all origins
+app.use(cors());
+
+// Example route
+app.use('/songs', express.static('path_to_songs_folder'));
+
+app.listen(3000, () => {
+    console.log('Server running on http://127.0.0.1:3000');
+});
+
 let currentSong = new Audio()
 let isListenerAdded = false;
 let songs;
-let currFolder; 
+let currFolder;
 
 function displaySongName(song) {
     // Replace %20 with space
@@ -43,8 +57,8 @@ async function getSongs(folder) {
             songs.push(element.href.split(`${folder}`)[1])
         }
     }
-    
-    
+
+
 
     let songUL = document.querySelector(".songList").getElementsByTagName("ul")[0]
     songUL.innerHTML = " "
@@ -63,7 +77,7 @@ async function getSongs(folder) {
         </li>`;
     }
     // let audio = new Audio(songs[0]);
-    
+
     Array.from(document.querySelector(".songList").getElementsByTagName("li")).forEach(e => {
         e.addEventListener("click", element => {
             // console.log(e.querySelector(".songInfo").firstElementChild.innerHTML);
@@ -75,16 +89,12 @@ async function getSongs(folder) {
     return songs
 }
 const playMusic = (track) => {
-    // let audi o = new Audio("/songs/"+ track)
-    // currentSong.src = `${currFolder}` + track
     currentSong.src = encodeURI(`${currFolder}${track}`);
-
     currentSong.play()
-    // play.src ="pause.png"
     play.src = "img/pause.svg";
     document.querySelector(".songinfo").innerHTML = decodeURI(track)
     document.querySelector(".songTime").innerHTML = "00:00 / 00:00"
-    // console.log("Playing song:", currentSong.src);
+
 
 }
 async function displayAlbum() {
@@ -99,13 +109,13 @@ async function displayAlbum() {
     for (let index = 0; index < array.length; index++) {
         const e = array[index];
         // console.log(e);
-        
 
 
-        if (e.href.includes("/songs") && !e.href.includes(".htaccess")) {
+
+        if (e.href.includes("/songs")) {
             let folder = e.href.split("/").slice(-2)[0]
             // console.log(folder);
-            
+
             // get the mata data of the folder 
             let a = await fetch(`/songs/${folder}/info.json`);
             let response = await a.json()
@@ -123,7 +133,7 @@ async function displayAlbum() {
         // load the playlist when ever the card is touched 
         Array.from(document.getElementsByClassName("card")).forEach(e => {
             e.addEventListener('click', async item => {
-                
+
                 songs = await getSongs(`songs/${item.currentTarget.dataset.folder}`)
                 playMusic(songs[0])
             })
@@ -133,7 +143,7 @@ async function displayAlbum() {
 
 async function main() {
     await getSongs("songs/bikhra")//
-    
+
     // .log(songs);
 
     displayAlbum()
@@ -171,7 +181,7 @@ async function main() {
         }
     });
 
-     // adding a addEventListener for previous 
+    // adding a addEventListener for previous 
     prev.addEventListener("click", () => {
         currentSong.pause();
         console.log("Previous song clicked");
