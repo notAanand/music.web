@@ -81,7 +81,7 @@ const playMusic = (track) => {
 
     currentSong.play()
     // play.src ="pause.png"
-    play.src = "pause.svg";
+    play.src = "img/pause.svg";
     document.querySelector(".songinfo").innerHTML = decodeURI(track)
     document.querySelector(".songTime").innerHTML = "00:00 / 00:00"
     // console.log("Playing song:", currentSong.src);
@@ -142,22 +142,20 @@ async function main() {
     play.addEventListener("click", () => {
         if (currentSong.paused) {
             currentSong.play()
-            // play.img.src = "pause.svg";
             console.log('music is playing');
         }
         else {
             currentSong.pause()
-            // play.img.src = "play.svg";
             console.log('music is not playing');
         }
     })
     // attach a eventlisterner to play and pause 
     document.querySelector("#play>img").addEventListener("click", e => {
-        if (e.target.src.includes("pause.svg")) {
-            e.target.src = e.target.src.replaceAll("pause.svg", "play.svg")
+        if (e.target.src.includes("img/pause.svg")) {
+            e.target.src = e.target.src.replaceAll("img/pause.svg", "img/play.svg")
         }
         else {
-            e.target.src = e.target.src.replaceAll("play.svg", "pause.svg")
+            e.target.src = e.target.src.replaceAll("img/play.svg", "img/pause.svg")
         }
 
     })
