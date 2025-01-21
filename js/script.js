@@ -121,7 +121,13 @@ async function displayAlbum() {
             e.addEventListener('click', async item => {
 
                 songs = await getSongs(`songs/${item.currentTarget.dataset.folder}`)
-                playMusic(songs[0])
+                // playMusic(songs[0])
+                if (songs[0]) {
+                    playMusic(songs[0]);
+                } else {
+                    console.error('No songs found in the folder.');
+                }
+                
             })
         })
     }
