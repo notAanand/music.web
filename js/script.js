@@ -77,7 +77,7 @@ async function getSongs(folder) {
 const playMusic = (track) => {
     currentSong.src = encodeURI(`${currFolder}${track}`);
     currentSong.play()
-    play.src = "img/pause.svg";
+    play.src = "./img/pause.svg";
     document.querySelector(".songinfo").innerHTML = decodeURI(track)
     document.querySelector(".songTime").innerHTML = "00:00 / 00:00"
 
@@ -147,11 +147,11 @@ async function main() {
     })
     // attach a eventlisterner to play and pause 
     document.querySelector("#play>img").addEventListener("click", e => {
-        if (e.target.src.includes("img/pause.svg")) {
-            e.target.src = e.target.src.replaceAll("img/pause.svg", "img/play.svg")
+        if (e.target.src.includes("./img/pause.svg")) {
+            e.target.src = e.target.src.replaceAll("./img/pause.svg", "./img/play.svg")
         }
         else {
-            e.target.src = e.target.src.replaceAll("img/play.svg", "img/pause.svg")
+            e.target.src = e.target.src.replaceAll("./img/play.svg", "./img/pause.svg")
         }
 
     })
