@@ -380,9 +380,9 @@ body {
 
     .playbar {
         width: 98vw;
-        height: 20vh;
+        height: 16vh;
         position: fixed;
-        top: 75%;
+        top: 80%;
 
     }
 
@@ -428,3 +428,5 @@ body {
 
 
 }
+
+/* hssn meri jssn kya kehri thi patung baaji chod do? */
